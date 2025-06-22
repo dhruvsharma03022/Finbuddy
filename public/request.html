@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinBuddy - Requests</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: white; /* Background white */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            position: fixed;
+            width: 95%;
+            background: #0056b3;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+        }
+
+        .container {
+            margin-top: 70px; /* Adjusted for fixed navbar */
+            flex: 1;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two grids */
+            gap: 20px;
+        }
+
+        .requests-container, .submit-request-container {
+            background: rgba(0, 123, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .requests-container h2, .submit-request-container h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .request-list {
+            margin-top: 20px;
+        }
+
+        .request {
+            background: white;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .request-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .request-details p {
+            margin: 0;
+        }
+
+        .contact-button {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"], .form-group input[type="number"], .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            height: 100px;
+        }
+
+        .form-group button {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 20px auto;
+        }
+
+        .form-group button:hover {
+            background: #0056b3;
+        }
+
+        .toggle-div {
+            display: none; /* Hide the divs by default */
+            /* margin-top: 20px; */
+        }
+
+        /* Show the first div when the first option is selected */
+        #option1:checked ~ .content-container .div1 {
+            display: block;
+        }
+
+        /* Show the second div when the second option is selected */
+        #option2:checked ~ .content-container .div2 {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const requestList = document.getElementById('request-list');
+    const submitButton = document.getElementById('submit-button');
+
+    // Load saved items from localStorage when the page loads
+    const savedItems = JSON.parse(localStorage.getItem('requests')) || [];
+    savedItems.forEach(item => {
+        appendRequest(item.name, item.amount, item.reason);
+    });
+
+    // Event listener for the submit button
+    submitButton.addEventListener('click', function() {
+        const name = document.getElementById('request-name').value;
+        const amount = document.getElementById('money-amount').value;
+        const reason = document.getElementById('money-reason').value;
+
+        // Append the new request to the DOM
+        appendRequest(name, amount, reason);
+
+        // Save the new request to localStorage
+        savedItems.push({ name, amount, reason });
+        localStorage.setItem('requests', JSON.stringify(savedItems));
+    });
+
+    /**
+     * Function to append a request to the DOM
+     * @param {string} name - The name of the requester
+     * @param {string} amount - The amount requested
+     * @param {string} reason - The reason for the request
+     */
+    function appendRequest(name, amount, reason) {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'item';
+
+        const itemDetailsDiv = document.createElement('div');
+        itemDetailsDiv.className = 'item-details';
+        itemDetailsDiv.innerHTML = `
+            <div class="request">
+                <div class="request-details">
+                    <p><strong>Requester:</strong> ${name}</p>
+                    <p><strong>Type:</strong> Money</p>
+                    <p><strong>Amount:</strong> $${amount}</p>
+                    <p><strong>Reason:</strong> ${reason}</p>
+                    <a href="payments.html" class="contact-button">Click to pay!</a>
+                </div>
+            </div>`;
+        
+        itemDiv.appendChild(itemDetailsDiv);
+        requestList.appendChild(itemDiv);
+    }
+});
+
+    </script>
+
+<!-- Navbar -->
+<div class="navbar">
+        <div class="navbar-left">
+            <a href="#">FinBuddy</a>
+        </div>
+        <div class="navbar-right">
+            <a href="#">Dashboard</a>
+            <a href="#">History</a>
+            <a href="#">Lending</a>
+            <a href="#">Request Loan</a>
+        </div>
+    </div>
+
+    <!-- Requests Page Container -->
+    <div class="container">
+        <!-- Requests Container -->
+        <div class="requests-container">
+            <h2>Requests from Others</h2>
+            <div class="request-list" id="request-list">
+                <div class="request">
+                    <div class="request-details">
+                        <p><strong>Requester:</strong> John Doe</p>
+                        <p><strong>Type:</strong> Money</p>
+                        <p><strong>Amount:</strong> $500</p>
+                        <p><strong>Reason:</strong> Medical expenses</p>
+                        <a href="payments.html" class="contact-button">Click to pay!</a>
+                    </div>
+                </div>
+                <div class="request">
+                    <div class="request-details">
+                        <p><strong>Requester:</strong> Jane Smith</p>
+                        <p><strong>Type:</strong> Item</p>
+                        <p><strong>Item:</strong> Laptop</p>
+                        <p><strong>Budget:</strong> $300</p>
+                        <p><strong>Reason:</strong> For schoolwork</p>
+                        <p><strong>Specifications:</strong> 8GB RAM, 256GB SSD</p>
+                        <a href="payments.html" class="contact-button">Click to pay!</a>
+                    </div>
+                </div>
+                <!-- Add more requests as needed -->
+            </div>
+        </div>
+
+        <!-- Submit Request Container -->
+        <div class="submit-request-container">
+            <h2>Submit Your Request</h2>
+                <input type="radio" id="option1" name="options" checked>
+                <label for="option1">Money</label>
+            
+                <input type="radio" id="option2" name="options">
+                <label for="option2">Item</label>
+            
+                <div class="content-container">
+                    <div class="form-group toggle-div div1">
+                        <label for="amount">Name:</label>
+                        <input type="text" id="request-name">
+                        <label for="money-amount">Amount</label>
+                        <input type="number" id="money-amount">
+                        <label for="money-reason">Reason</label>
+                        <textarea id="money-reason"></textarea>
+                        <button type="submit" id="submit-button">Submit Request</button>
+                    </div>
+                    <div class="form-group toggle-div div2">
+                        <label for="item-name">Item</label>
+                        <input type="text" id="item-name">
+                        <label for="item-budget">Budget</label>
+                        <input type="number" id="item-budget">
+                        <label for="item-reason">Reason</label>
+                        <textarea id="item-reason"></textarea>
+                        <label for="item-specifications">Specifications</label>
+                        <textarea id="item-specifications"></textarea>
+                        <button type="submit">Submit Request</button>
+                    </div>
+                </div>
+        </div>
+    </div>
+</body>
+
+</html>

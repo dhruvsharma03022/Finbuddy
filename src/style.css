@@ -1,0 +1,113 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.login-page {
+    height: 100vh;
+    background: #2196E2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.auth-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+
+.logo {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+
+.title {
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+/* Input Field */
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.input-field:focus {
+    border: 1px solid #007bff;
+    outline: none;
+}
+
+/* Options */
+.options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Checkbox */
+.checkbox {
+    margin-right: 5px;
+}
+
+/* Links */
+.link {
+    text-decoration: none;
+    color: #007bff;
+}
+
+/* Button */
+.btn {
+    width: 100%;
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* Toggle Text */
+.toggle-text {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.toggle-btn {
+    text-decoration: none;
+    font-weight: bold;
+    color: #007bff;
+    cursor: pointer;
+}
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+}

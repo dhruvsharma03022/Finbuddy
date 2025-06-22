@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinBuddy - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .navbar {
+            position: fixed;
+            width: 95%;
+            background: #0056b3;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+        }
+
+        .welcome-section {
+            padding: 100px 100px 50px;
+            color: white;
+            background: linear-gradient(rgba(33, 150, 226, 0.3), rgba(33, 150, 226, 0.3)), url('https://www.topuniversities.com/sites/default/files/styles/736x304/public/guides/lead-bg-images/file%20-%202024-07-23T153053.501.jpg.webp');
+            background-size: cover;
+        }
+        
+        .welcome-section p {
+            width: 70%;
+            font-size: 18px;
+            z-index: 2;
+        }
+
+        .welcome-section .signup-btn {
+            color: white;
+            background: #007bff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .welcome-section .signup-btn:hover {
+            background: #0056b3;
+        }
+
+        .features-section {
+            margin-left: 100px;
+            margin-right: 100px;
+            background: white;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .features-section h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+            grid-column: 1 / -1;
+        }
+
+        .feature-item {
+            background: rgba(0, 123, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item h3 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .download-section {
+            padding: 40px;
+            border-radius: 20px;
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        .download-section h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .download-section input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+            margin-right: 5px;
+            margin-bottom: 10px;
+        }
+
+        .download-section button {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .download-section button:hover {
+            background: #0056b3;
+        }
+
+        .footer {
+            background: #0056b3;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-left"></div>
+        <div class="navbar-right">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="history.html">History</a>
+            <a href="lending.html">Lending</a>
+            <a href="request.html">Request Loan</a>
+        </div>
+    </div>
+
+    <!-- Welcome Section -->
+    <div class="welcome-section">
+        <p><h1>Welcome to FinBuddy!</h1></p>
+        <p style="margin-bottom: 30px;">FinBuddy is your go-to platform for lending and borrowing money and valuable items. Connect, lend, and borrow effortlessly while managing all transactions with ease. Join us today and be part of a supportive financial community!</p>
+        <p><a href="login.html" class="signup-btn">Sign Up</a></p>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features-section">
+        <h2>What We Do</h2>
+        <div class="feature-item">
+            <h3>Lend Money and Items</h3>
+            <p>Securely lend money or valuable items to trusted individuals within the community.</p>
+        </div>
+        <div class="feature-item">
+            <h3>Borrow Money and Items</h3>
+            <p>Borrow money or items you need from reliable members with confidence.</p>
+        </div>
+        <div class="feature-item">
+            <h3>Connect with Lenders and Borrowers</h3>
+            <p>Find and connect with other users who are looking to lend or borrow.</p>
+        </div>
+        <div class="feature-item">
+            <h3>Manage Your Transactions</h3>
+            <p>Track and manage all your lending and borrowing activities in one place.</p>
+        </div>
+        <div class="feature-item">
+            <h3>Transaction History</h3>
+            <p>Keep a detailed history of all your transactions for transparency and accountability.</p>
+        </div>
+    </div>
+
+    <div class="download-section">
+        <h2>Download the FinBuddy Mobile App</h2>
+        <p>Get the app link sent to your email:</p>
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Send App Link</button>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 FinBuddy. All rights reserved.</p>
+    </div>
+</body>
+
+</html>

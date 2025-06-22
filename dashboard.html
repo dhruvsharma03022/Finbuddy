@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinBuddy - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: white; /* Background white */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+    
+        .navbar {
+            position: fixed;
+            width: 95%;
+            background: #0056b3;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+        }
+    
+        .container {
+            margin-top: 70px; /* Adjusted for fixed navbar */
+            flex: 1;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+        }
+    
+        .card {
+            background: rgba(0, 123, 255, 0.1);
+            padding: 20px;
+            padding-top: 2px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #333;
+            text-align: justify;
+        }
+    
+        .profile {
+            text-align: center;
+            width: 90%;
+        }
+    
+        .profile img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-top: 20px;
+        }
+    
+        .section-title {
+            color: #007bff;
+        }
+    
+        .recent-items img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 5px !important;
+        }
+    
+        .item-list {
+            display: flex;
+            align-items: center;
+        }
+    
+        .item-list img {
+            cursor: pointer;
+            margin-right: 20px;
+        }
+    
+        .view-history {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            height: 150px;
+            background-color: rgba(0, 123, 255, 0.3);
+            border-radius: 5px;
+            color: #007bff;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    
+        .horizontal-card {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: 100%;
+        }
+    
+        .horizontal-card .details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    
+        .horizontal-card .card {
+            flex: 1;
+        }
+    
+        .profile p {
+            text-align: justify;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <a href="#">FinBuddy</a>
+        </div>
+        <div class="navbar-right">
+            <a href="#">Dashboard</a>
+            <a href="history.html">History</a>
+            <a href="lending.html">Lending</a>
+            <a href="request.html">Request Loan</a>
+        </div>
+    </div>
+
+    <!-- Dashboard Container -->
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="card profile">
+            <img src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?t=st=1738689289~exp=1738692889~hmac=8dc517b3af4be05d3ac286e224837087d39a779115610513f43f61a51ad0e6b1&w=740" alt="User Photo">
+            <h3>John Doe</h3>
+            <p>Mobile: 123-456-7890</p>
+            <p>Joined: January 1, 2022</p>
+            <p>Total Transactions: 50</p>
+            <p>Total People Transacted With: 20</p>
+            <h4 class="section-title" style="margin-top: 40px;">Top Interacted Users</h4>
+            <div class="item-list">
+                <img src="https://thispersondoesnotexist.com/" alt="User 1">
+                <img src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*3Q2Ek1UIyaz_lowodJ6nUg.jpeg" alt="User 2">
+                <img src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?t=st=1738689289~exp=1738692889~hmac=8dc517b3af4be05d3ac286e224837087d39a779115610513f43f61a51ad0e6b1&w=740" alt="User 3">
+            </div>
+        </div>
+
+        <!-- Lending and Borrowing Sections -->
+        <div class="horizontal-card">
+            <div class="card">
+                <div class="details">
+                    <h3 class="section-title">Lending History</h3>
+                    <p>Total Lent: 10 items</p>
+                    <h4 class="section-title">Recent Items Lent</h4>
+                </div>
+                <div class="item-list recent-items">
+                        <img src="https://img.freepik.com/free-vector/vintage-bike-design_1268-347.jpg?t=st=1738690128~exp=1738693728~hmac=6872117ed19f1bc31fb6fc1a01121a277f64aead1a0ab9e7013fa485cd3bb1fb&w=740" alt="Item 1">
+                        <img src="https://img.freepik.com/free-vector/calculating-costs_24877-49122.jpg?t=st=1738692275~exp=1738695875~hmac=b7f6eb43c029de9a67ec47c9f98f2a2156d55f428736eb3a1fedee9905a0972d&w=740" alt="Item 2">
+                        <img src="https://img.freepik.com/free-psd/money-illustration-isolated_23-2151568528.jpg" alt="Item 3">
+                        <a href="history.html" class="view-history">View complete history >></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="details">
+                    <h3 class="section-title">Borrowing History</h3>
+                    <p>Total Borrowed: 8 items</p>
+                    <h4 class="section-title">Recent Items Borrowed</h4>
+                </div>
+                <div class="item-list recent-items">
+                    <img src="https://img.freepik.com/free-vector/vintage-bike-design_1268-347.jpg?t=st=1738690128~exp=1738693728~hmac=6872117ed19f1bc31fb6fc1a01121a277f64aead1a0ab9e7013fa485cd3bb1fb&w=740" alt="Item 1">
+                    <img src="https://img.freepik.com/free-vector/calculating-costs_24877-49122.jpg?t=st=1738692275~exp=1738695875~hmac=b7f6eb43c029de9a67ec47c9f98f2a2156d55f428736eb3a1fedee9905a0972d&w=740" alt="Item 2">
+                    <img src="https://img.freepik.com/free-psd/money-illustration-isolated_23-2151568528.jpg" alt="Item 3">
+                    <a href="history.html" class="view-history">View complete history >></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
